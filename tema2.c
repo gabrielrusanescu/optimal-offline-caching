@@ -50,7 +50,7 @@ int rezolva_cache(const char *nume_fisier) {
     printf("Se executa procesul pentru fisierul %s\n", nume_fisier);
     for(int i = 0; i<m; i++) {
         int gasit = -1;
-        for(int j = 0; j < k; j++) {
+        for(int j = 0; j<k; j++) {
             if(strcmp(cache[j], cereri[i]) == 0) {
                 gasit = j;
                 break;
@@ -64,7 +64,7 @@ int rezolva_cache(const char *nume_fisier) {
 
             for(int j=0; j<k; j++) {
                 int nextpoz = gaseste_urmatoarea_aparitie(cereri, m, i+1, cache[j]);
-                if (nextpoz > maxnextpoz) {
+                if (nextpoz>maxnextpoz) {
                     maxnextpoz = nextpoz;
                     index_de_eliminat = j;
                 }
@@ -76,15 +76,15 @@ int rezolva_cache(const char *nume_fisier) {
         }
 
         printf("Cache actual: ");
-        for (int j = 0; j < k; j++) printf("%s ", cache[j]);
+        for (int j = 0; j<k; j++) printf("%s ", cache[j]);
         printf("\n");
     }
 
     printf("Total Cache Misses: %d\n\n", cachemisses);
 
-    for (int i = 0; i < n; i++) free(resurse[i]); free(resurse);
-    for (int i = 0; i < k; i++) free(cache[i]); free(cache);
-    for (int i = 0; i < m; i++) free(cereri[i]); free(cereri);
+    for (int i = 0; i<n; i++) free(resurse[i]); free(resurse);
+    for (int i = 0; i<k; i++) free(cache[i]); free(cache);
+    for (int i = 0; i<m; i++) free(cereri[i]); free(cereri);
     
     fclose(fin);
     return cachemisses;
