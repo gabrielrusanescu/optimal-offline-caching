@@ -10,7 +10,7 @@ Nume: Rusănescu Gabriel
 #include <assert.h>
 #include <limits.h>
 
-#define MAXSTRING 75
+#define maxstr 75
 
 int gaseste_urmatoarea_aparitie(char **cereri, int m, int pozstart, char *numeresursa){
     for(int i=pozstart; i<m; i++){
@@ -28,19 +28,19 @@ int rezolva_cache(const char *nume_fisier){
     if(fscanf(fin, "%d", &n)!=1){ fclose(fin); return -1; }
     char **resurse=(char **)malloc(n * sizeof(char *));
     for(int i=0; i<n; i++){
-        resurse[i]=(char *)malloc(MAXSTRING * sizeof(char));
+        resurse[i]=(char *)malloc(maxstr * sizeof(char));
         fscanf(fin, "%s", resurse[i]);
     }
     if(fscanf(fin, "%d", &k)!=1){ fclose(fin); return -1; }
     char **cache=(char **)malloc(k * sizeof(char *));
     for(int i=0; i<k; i++) {
-        cache[i]=(char *)malloc(MAXSTRING * sizeof(char));
+        cache[i]=(char *)malloc(maxstr * sizeof(char));
         fscanf(fin, "%s", cache[i]);
     }
     if(fscanf(fin, "%d", &m)!=1){ fclose(fin); return -1; }
     char **cereri=(char **)malloc(m * sizeof(char *));
     for(int i=0; i<m; i++){
-        cereri[i]=(char *)malloc(MAXSTRING * sizeof(char));
+        cereri[i]=(char *)malloc(maxstr * sizeof(char));
         fscanf(fin, "%s", cereri[i]);
     }
     int cachemisses=0;
